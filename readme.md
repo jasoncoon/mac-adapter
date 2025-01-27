@@ -1,5 +1,9 @@
 # Mac Power Adapter Details
 
+Use your MacBook as a USB-PD tester.
+
+Tested only on a MacBook Pro with M4 Pro chip, running MacOS Sequoia 15.1.1. It may run and work on other hardware, but you may need to run or compile using Deno.
+
 Run `./mac-adapter output` where `output` is any file name.
 
 It'll write three files:
