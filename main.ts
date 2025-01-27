@@ -46,28 +46,38 @@ async function printData() {
 
   const adapterDetails = data[0].AdapterDetails;
 
-  if (!adapterDetails || !adapterDetails.Manufacturer) {
+  if (!adapterDetails || adapterDetails.FamilyCode === 0) {
     console.log("No adapter details found, is it plugged in?");
     return;
   }
 
-  console.log(`
-Adapter Details:
+  const details = `Adapter Details:
 * Manufacturer: ${adapterDetails.Manufacturer}
 * Name: ${adapterDetails.Name}
+* Description: ${adapterDetails.Description}
 * Voltage: ${(adapterDetails.AdapterVoltage ?? 0) / 1000}V
 * Current: ${(adapterDetails.Current ?? 0) / 1000}A
+* Watts: ${adapterDetails.Watts}
 * Capabilities:
 ${adapterDetails.UsbHvcMenu?.map(
   (capability) =>
     `  * ${capability.MaxVoltage / 1000}V ${capability.MaxCurrent / 1000}A`
-).join("\n")}`);
+).join("\n")}`;
+
+  console.log(
+    `Writing ${details.length.toLocaleString()} bytes to ${filename}.md`
+  );
+
+  await Deno.writeTextFile(`${filename}.md`, details);
+
+  console.log(details);
 }
 
 interface AppleSmartBattery {
   AdapterDetails: {
     AdapterVoltage?: number;
     Current?: number;
+    Description?: string;
     FamilyCode: number;
     Manufacturer?: string;
     Model?: string;

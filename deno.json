@@ -1,6 +1,7 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-run --allow-write --watch main.ts battery",
+    "dev": "deno run --allow-read --allow-run --allow-write main.ts",
+    "watch": "deno run --allow-read --allow-run --allow-write --watch main.ts",
     "build": "deno compile --allow-env --allow-ffi --allow-read --allow-run --allow-sys --allow-write main.ts"
   },
   "imports": {

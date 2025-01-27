@@ -1,5 +1,2 @@
-battery.json
-battery.xml
+.DS_Store
 deno.lock
-output.json
-output.xml
