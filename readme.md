@@ -4,76 +4,93 @@ Use your MacBook as a USB-PD tester.
 
 Tested only on a MacBook Pro with M4 Pro chip, running MacOS Sequoia 15.1.1. It may run and work on other hardware, but you may need to run or compile using [Deno](https://deno.com).
 
-## Usage:
+![Web Page Screensot](web-page.png)
 
-Run `./mac-adapter` from the command line.
+## Web Server Usage:
 
-Options:
+Run `./mac-adapter-server` from the command line, or just double-click it.
 
-| Option | Description | Default |
-| ------ | ----------- | ------- |
-| -h, --help | Show this help. | false |
-| -V, --version | Show the version number for this program. | false |
-| -v, --verbose | Print verbose debug information to the console. | false |
-| -o, --output \<name> | The name of optional output directory and files. | "" |
+Then open http://localhost:8080 in your browser.
 
-If `--output <name>` is not specified, no output directory or files will be created.
+## CLI Usage:
 
-If it is, a directory will be created in the current working directory with the path: ./output/name/
-
-In this directory three files will be created:
-
-* `/output/name/name.xml`
-  * the raw output of running the 'ioreg -acrw0 AppleSmartBattery' command, in PList XML format. This can be very hard to read.
-* `./output/name/name.json`
-  * the output converted to JSON format, which I find much easier to read, both manually and programmatically.
-* `./output/name/name.md`
-  * the adapter details from the output summarized in Markdown format.
+Run `./mac-adapter` from the command line, or just double-click it.
 
 ## Markdown Output Examples:
 
-### Apple 70W USB-C Power Adapter:
-
-Adapter Details:
+Adapter 1 ★ Best
 * Manufacturer: Apple Inc.
-* Name: 70W USB-C Power Adapter 
-* Description: pd charger
-* Capabilities:
+* Name: 140W USB-C Power Adapter
+* Description: USB PD Charger
+* Modes: 
   * 5V 2.96A (14.8W)
   * 9V 2.98A (26.82W)
   * 15V 2.99A (44.85W)
-  * 20V 3.39A (67.8W) <- active
+  * 20V 4.69A (93.8W) ✔ Active
 
-### Apple 20W USB-C Power Adapter:
+---
 
-Adapter Details:
+Adapter 2
+* Manufacturer: Apple Inc.
+* Name: 70W USB-C Power Adapter 
+* Description: USB PD Charger
+* Modes:
+  * 5V 2.96A (14.8W)
+  * 9V 2.98A (26.82W)
+  * 15V 2.99A (44.85W)
+  * 20V 3.39A (67.8W)
+
+---
+
+Adapter 3
 * Manufacturer: Apple Inc.
 * Name: 20W USB-C Power Adapter
-* Description: pd charger
-* Capabilities:
+* Description: USB PD Charger
+* Modes:
   * 5V 3A (15W)
-  * 9V 2.22A (19.98W) <-active
+  * 9V 2.22A (19.98W)
 
-### Battery pack 1:
+---
 
-Adapter Details:
-* Description: pd charger
-* Capabilities:
-  * 5V 0.9A (4.5W) <-active
+Adapter 4
+* Description: USB PD Charger
+* Modes: 
+  * 5V 2.96A (14.8W)
+  * 9V 2.98A (26.82W)
+  * 12V 2.98A (35.76W)
+  * 15V 2.99A (44.85W)
+  * 18V 2.99A (53.82W)
+  * 20V 2.99A (59.8W)
 
-### Battery pack 2:
+---
 
-Adapter Details:
-* Description: pd charger
-* Capabilities:
-  * 5V 3A (15W)
-  * 9V 2.22A (19.98W) <-active
-
-### Battery pack 3:
-
-Adapter Details:
-* Description: pd charger
-* Capabilities:
+Adapter 5
+* Description: USB PD Charger
+* Modes:
   * 5V 2A (10W)
   * 9V 2A (18W)
   * 12V 1.5A (18W)
+
+---
+
+Adapter 6
+* Description: USB PD Charger
+* Modes:
+  * 5V 3A (15W)
+  * 9V 2.22A (19.98W)
+
+---
+
+Adapter 7
+* Description: USB Host
+* Voltage: 5V
+* Current: 3A
+* Power: 15W
+
+---
+
+Adapter 8
+* Description: USB PD Charger
+* Voltage: 5V
+* Current: 0.9A
+* Power: 5W
