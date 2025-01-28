@@ -38,7 +38,6 @@ Adapter Details:
 * Manufacturer: Apple Inc.
 * Name: 70W USB-C Power Adapter 
 * Description: pd charger
-* Wireless: false
 * Capabilities:
   * 5V 2.96A (14.8W)
   * 9V 2.98A (26.82W)
@@ -58,8 +57,6 @@ Adapter Details:
 ### Battery pack 1:
 
 Adapter Details:
-* Manufacturer: undefined
-* Name: undefined
 * Description: pd charger
 * Capabilities:
   * 5V 0.9A (4.5W) <-active
@@ -67,8 +64,6 @@ Adapter Details:
 ### Battery pack 2:
 
 Adapter Details:
-* Manufacturer: undefined
-* Name: undefined
 * Description: pd charger
 * Capabilities:
   * 5V 3A (15W)
@@ -77,12 +72,7 @@ Adapter Details:
 ### Battery pack 3:
 
 Adapter Details:
-* Manufacturer: undefined
-* Name: undefined
 * Description: pd charger
-* Voltage: 12V
-* Current: 1.5A
-* Watts: 18
 * Capabilities:
   * 5V 2A (10W)
   * 9V 2A (18W)

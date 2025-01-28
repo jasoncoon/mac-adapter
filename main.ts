@@ -64,7 +64,6 @@ class Runner {
       Manufacturer: manufacturer,
       Name: name,
       Description: description,
-      isWireless: isWireless,
       UsbHvcMenu: capabilities,
       UsbHvcHvcIndex: activeCapabilityIndex,
     } = adapterDetails;
@@ -73,7 +72,6 @@ class Runner {
       { name: "Manufacturer", value: manufacturer },
       { name: "Name", value: name },
       { name: "Description", value: description },
-      { name: "Wireless", value: isWireless },
     ];
 
     if (adapterDetails.UsbHvcMenu?.length) {
@@ -164,20 +162,14 @@ function formatCapabilities(
     ?.map((item) => formatCapability(item, activeIndex))
     .join("\n  * ")}`;
 }
+
 interface AppleSmartBattery {
   AdapterDetails: {
-    AdapterVoltage?: number;
-    Current?: number;
     Description?: string;
-    FamilyCode: number;
-    isWireless?: boolean;
     Manufacturer?: string;
-    Model?: string;
     Name?: string;
-    SerialString?: string;
     UsbHvcHvcIndex?: number;
     UsbHvcMenu?: Capability[];
-    Watts?: number;
   };
   ExternalConnected: boolean;
 }
